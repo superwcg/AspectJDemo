@@ -15,7 +15,8 @@ public class SecureAnnotationAspect {
     // @Pointcut("execution (* *.*.MessageCommunicator.deliver(..))")
     // @Pointcut("call (* ajia..MessageCommunicator.deliver(..))")
     // @Pointcut("call (* ajia..*Communicator.deliver(..)) && target(communicator) && args(msg0,msg1)")
-    @Pointcut("call (* ajia..*Communicator.deliver(..)) && target(communicator) && args(msg0,..)")
+    //@Pointcut("call (* ajia..*Communicator.deliver(..)) && target(communicator) && args(msg0,..)")
+    @Pointcut("call (* ajia..*Communicator.deliver(int)) && target(communicator) && args(msg0,..)")
     private void secureAccess(MessageCommunicator communicator, String msg0) {
     }
 
@@ -28,6 +29,8 @@ public class SecureAnnotationAspect {
 	System.out
 		.println("##########Before advice end:基于注解的检查验证用户##############");
     }
+    
+    
     // @After("secureAccess(communicator,msg0)")
     // public void abcAfter(MessageCommunicator communicator, String msg0) {
     // System.out.println("#################After advice#############");
